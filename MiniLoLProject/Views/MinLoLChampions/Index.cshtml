@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MiniLoLProject.DAL.MinLoLChampion>
+
+@{
+    ViewBag.Title = "Champions";
+}
+
+<h2>Champions</h2>
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Add a Champion", "Create", null, new { @class = "btn btn-success" })
+    </p>
+}
+
+<div class="champ-wrapper">
+    @foreach (var item in Model)
+    {
+       
+            <div class="champ text-center">
+                <a class="champ-icon" href="@Url.Action( "Details", new  { id = item.ChampID } )">
+                    <img src="~/Content/Champions/Icons/@Html.DisplayFor(modelItem => item.ChampIcon)" width="65" />
+                </a>
+                <br />
+                <a class="champ-text" href="@Url.Action( "Details", new  { id = item.ChampID } )">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </a>
+            </div>
+       
+
+
+
+    }
+    <div class="clearfix"></div>
+</div>
+

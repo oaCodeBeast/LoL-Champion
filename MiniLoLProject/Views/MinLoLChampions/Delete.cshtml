@@ -1,0 +1,80 @@
+﻿@model MiniLoLProject.DAL.MinLoLChampion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MinLoLChampion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChampIcon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChampIcon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChampPic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChampPic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChampBio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChampBio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinLoLRole.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinLoLRole.RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinLoLUltimate.UltimateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinLoLUltimate.UltimateName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinLoLChampsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MinLoLChampions">
+    <Key>
+      <PropertyRef Name="ChampID" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ChampIcon" Type="nvarchar" MaxLength="200" />
+    <Property Name="ChampPic" Type="nvarchar" MaxLength="200" />
+    <Property Name="ChampBio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ChampID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UltimateID" Type="int" Nullable="false" />
+    <Property Name="ChampRoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MinLoLRoles">
+    <Key>
+      <PropertyRef Name="ChampRoleID" />
+    </Key>
+    <Property Name="ChampRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="RoleDescription" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MinLoLUltimates">
+    <Key>
+      <PropertyRef Name="UltimateID" />
+    </Key>
+    <Property Name="UltimateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UltimateName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UltimateIcon" Type="nvarchar" MaxLength="200" />
+    <Property Name="UltimatePic" Type="nvarchar" MaxLength="200" />
+    <Property Name="UltimateDescription" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="UltimateCost" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_MinLoLChampions_MinLoLRoles">
+    <End Role="MinLoLRoles" Type="Self.MinLoLRoles" Multiplicity="1" />
+    <End Role="MinLoLChampions" Type="Self.MinLoLChampions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinLoLRoles">
+        <PropertyRef Name="ChampRoleID" />
+      </Principal>
+      <Dependent Role="MinLoLChampions">
+        <PropertyRef Name="ChampRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MinLoLChampions_MinLoLUltimates">
+    <End Role="MinLoLUltimates" Type="Self.MinLoLUltimates" Multiplicity="1" />
+    <End Role="MinLoLChampions" Type="Self.MinLoLChampions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinLoLUltimates">
+        <PropertyRef Name="UltimateID" />
+      </Principal>
+      <Dependent Role="MinLoLChampions">
+        <PropertyRef Name="UltimateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MinLoLChampsModelStoreContainer">
+    <EntitySet Name="MinLoLChampions" EntityType="Self.MinLoLChampions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MinLoLRoles" EntityType="Self.MinLoLRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MinLoLUltimates" EntityType="Self.MinLoLUltimates" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MinLoLChampions_MinLoLRoles" Association="Self.FK_MinLoLChampions_MinLoLRoles">
+      <End Role="MinLoLRoles" EntitySet="MinLoLRoles" />
+      <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MinLoLChampions_MinLoLUltimates" Association="Self.FK_MinLoLChampions_MinLoLUltimates">
+      <End Role="MinLoLUltimates" EntitySet="MinLoLUltimates" />
+      <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

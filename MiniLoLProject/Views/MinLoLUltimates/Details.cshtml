@@ -1,0 +1,43 @@
+﻿@model MiniLoLProject.DAL.MinLoLUltimate
+
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.UltimateName);
+}
+
+
+
+
+    <div class="col-md-6 col-md-offset-3 text-center ult-detail">
+        <div class="ulticon"><img src="~/Content/Ultimates/Icons/@Html.DisplayFor(model => model.UltimateIcon)" /></div>
+        <br />
+        <div class="col-md-12">
+        <h2 class="col-md-6 pull-left">@Html.DisplayFor(model => model.UltimateName)</h2>  
+            <span class="pull-right col-md-6">@Html.DisplayFor(model => model.UltimateCost)</span>
+            <div class="clearfix"></div>
+            <br />
+            <p>@Html.DisplayFor(model => model.UltimateDescription)</p>
+            <br />
+            <img src="~/Content/Ultimates/Pic/@Html.DisplayFor(model => model.UltimatePic)" width="400"/>
+         </div>
+       
+
+        
+
+        
+
+
+
+      
+
+
+
+      
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.UltimateID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+       
+    </div>
+<div class="clearfix"></div>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniLoLProject", "MiniLoLProject\MiniLoLProject.csproj", "{7A92BBE2-6D1B-4E5D-9F3F-56B91D73674D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniLoLProject.DAL", "MiniLoLProject.DAL\MiniLoLProject.DAL.csproj", "{EC2867AF-05DE-41C8-85B8-6BF8CF2805C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A92BBE2-6D1B-4E5D-9F3F-56B91D73674D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A92BBE2-6D1B-4E5D-9F3F-56B91D73674D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A92BBE2-6D1B-4E5D-9F3F-56B91D73674D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A92BBE2-6D1B-4E5D-9F3F-56B91D73674D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2867AF-05DE-41C8-85B8-6BF8CF2805C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2867AF-05DE-41C8-85B8-6BF8CF2805C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2867AF-05DE-41C8-85B8-6BF8CF2805C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2867AF-05DE-41C8-85B8-6BF8CF2805C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

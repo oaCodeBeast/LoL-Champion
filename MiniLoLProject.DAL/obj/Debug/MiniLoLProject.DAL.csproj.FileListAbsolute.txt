@@ -1,0 +1,10 @@
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\bin\Debug\MiniLoLProject.DAL.dll.config
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\bin\Debug\MiniLoLProject.DAL.dll
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\bin\Debug\MiniLoLProject.DAL.pdb
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\bin\Debug\EntityFramework.dll
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\bin\Debug\EntityFramework.xml
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\obj\Debug\MiniLoLProject.DAL.csprojResolveAssemblyReference.cache
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\obj\Debug\MiniLoLProject.DAL.dll
+c:\users\omar\documents\visual studio 2015\Projects\MiniLoLProject\MiniLoLProject.DAL\obj\Debug\MiniLoLProject.DAL.pdb

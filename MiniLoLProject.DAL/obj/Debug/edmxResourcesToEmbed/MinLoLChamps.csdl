@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinLoLChampsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MinLoLChampion">
+    <Key>
+      <PropertyRef Name="ChampID" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChampIcon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ChampPic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ChampBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChampID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UltimateID" Type="Int32" Nullable="false" />
+    <Property Name="ChampRoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MinLoLRole" Relationship="Self.FK_MinLoLChampions_MinLoLRoles" FromRole="MinLoLChampions" ToRole="MinLoLRoles" />
+    <NavigationProperty Name="MinLoLUltimate" Relationship="Self.FK_MinLoLChampions_MinLoLUltimates" FromRole="MinLoLChampions" ToRole="MinLoLUltimates" />
+  </EntityType>
+  <EntityType Name="MinLoLRole">
+    <Key>
+      <PropertyRef Name="ChampRoleID" />
+    </Key>
+    <Property Name="ChampRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MinLoLChampions" Relationship="Self.FK_MinLoLChampions_MinLoLRoles" FromRole="MinLoLRoles" ToRole="MinLoLChampions" />
+  </EntityType>
+  <EntityType Name="MinLoLUltimate">
+    <Key>
+      <PropertyRef Name="UltimateID" />
+    </Key>
+    <Property Name="UltimateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UltimateName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UltimateIcon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UltimatePic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UltimateDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UltimateCost" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MinLoLChampions" Relationship="Self.FK_MinLoLChampions_MinLoLUltimates" FromRole="MinLoLUltimates" ToRole="MinLoLChampions" />
+  </EntityType>
+  <Association Name="FK_MinLoLChampions_MinLoLRoles">
+    <End Role="MinLoLRoles" Type="Self.MinLoLRole" Multiplicity="1" />
+    <End Role="MinLoLChampions" Type="Self.MinLoLChampion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinLoLRoles">
+        <PropertyRef Name="ChampRoleID" />
+      </Principal>
+      <Dependent Role="MinLoLChampions">
+        <PropertyRef Name="ChampRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MinLoLChampions_MinLoLUltimates">
+    <End Role="MinLoLUltimates" Type="Self.MinLoLUltimate" Multiplicity="1" />
+    <End Role="MinLoLChampions" Type="Self.MinLoLChampion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MinLoLUltimates">
+        <PropertyRef Name="UltimateID" />
+      </Principal>
+      <Dependent Role="MinLoLChampions">
+        <PropertyRef Name="UltimateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MinLoLChampsEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MinLoLChampions" EntityType="Self.MinLoLChampion" />
+    <EntitySet Name="MinLoLRoles" EntityType="Self.MinLoLRole" />
+    <EntitySet Name="MinLoLUltimates" EntityType="Self.MinLoLUltimate" />
+    <AssociationSet Name="FK_MinLoLChampions_MinLoLRoles" Association="Self.FK_MinLoLChampions_MinLoLRoles">
+      <End Role="MinLoLRoles" EntitySet="MinLoLRoles" />
+      <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MinLoLChampions_MinLoLUltimates" Association="Self.FK_MinLoLChampions_MinLoLUltimates">
+      <End Role="MinLoLUltimates" EntitySet="MinLoLUltimates" />
+      <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

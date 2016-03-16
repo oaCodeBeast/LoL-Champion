@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MinLoLChampsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MinLoLChampions">
+          <Key>
+            <PropertyRef Name="ChampID" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChampIcon" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChampPic" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChampBio" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ChampID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UltimateID" Type="int" Nullable="false" />
+          <Property Name="ChampRoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MinLoLRoles">
+          <Key>
+            <PropertyRef Name="ChampRoleID" />
+          </Key>
+          <Property Name="ChampRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="RoleDescription" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MinLoLUltimates">
+          <Key>
+            <PropertyRef Name="UltimateID" />
+          </Key>
+          <Property Name="UltimateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UltimateName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UltimateIcon" Type="nvarchar" MaxLength="200" />
+          <Property Name="UltimatePic" Type="nvarchar" MaxLength="200" />
+          <Property Name="UltimateDescription" Type="nvarchar" MaxLength="600" Nullable="false" />
+          <Property Name="UltimateCost" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_MinLoLChampions_MinLoLRoles">
+          <End Role="MinLoLRoles" Type="Self.MinLoLRoles" Multiplicity="1" />
+          <End Role="MinLoLChampions" Type="Self.MinLoLChampions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MinLoLRoles">
+              <PropertyRef Name="ChampRoleID" />
+            </Principal>
+            <Dependent Role="MinLoLChampions">
+              <PropertyRef Name="ChampRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MinLoLChampions_MinLoLUltimates">
+          <End Role="MinLoLUltimates" Type="Self.MinLoLUltimates" Multiplicity="1" />
+          <End Role="MinLoLChampions" Type="Self.MinLoLChampions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MinLoLUltimates">
+              <PropertyRef Name="UltimateID" />
+            </Principal>
+            <Dependent Role="MinLoLChampions">
+              <PropertyRef Name="UltimateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MinLoLChampsModelStoreContainer">
+          <EntitySet Name="MinLoLChampions" EntityType="Self.MinLoLChampions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MinLoLRoles" EntityType="Self.MinLoLRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MinLoLUltimates" EntityType="Self.MinLoLUltimates" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MinLoLChampions_MinLoLRoles" Association="Self.FK_MinLoLChampions_MinLoLRoles">
+            <End Role="MinLoLRoles" EntitySet="MinLoLRoles" />
+            <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MinLoLChampions_MinLoLUltimates" Association="Self.FK_MinLoLChampions_MinLoLUltimates">
+            <End Role="MinLoLUltimates" EntitySet="MinLoLUltimates" />
+            <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MinLoLChampsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MinLoLChampion">
+          <Key>
+            <PropertyRef Name="ChampID" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChampIcon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChampPic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChampBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChampID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UltimateID" Type="Int32" Nullable="false" />
+          <Property Name="ChampRoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MinLoLRole" Relationship="Self.FK_MinLoLChampions_MinLoLRoles" FromRole="MinLoLChampions" ToRole="MinLoLRoles" />
+          <NavigationProperty Name="MinLoLUltimate" Relationship="Self.FK_MinLoLChampions_MinLoLUltimates" FromRole="MinLoLChampions" ToRole="MinLoLUltimates" />
+        </EntityType>
+        <EntityType Name="MinLoLRole">
+          <Key>
+            <PropertyRef Name="ChampRoleID" />
+          </Key>
+          <Property Name="ChampRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MinLoLChampions" Relationship="Self.FK_MinLoLChampions_MinLoLRoles" FromRole="MinLoLRoles" ToRole="MinLoLChampions" />
+        </EntityType>
+        <EntityType Name="MinLoLUltimate">
+          <Key>
+            <PropertyRef Name="UltimateID" />
+          </Key>
+          <Property Name="UltimateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UltimateName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UltimateIcon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UltimatePic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UltimateDescription" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UltimateCost" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MinLoLChampions" Relationship="Self.FK_MinLoLChampions_MinLoLUltimates" FromRole="MinLoLUltimates" ToRole="MinLoLChampions" />
+        </EntityType>
+        <Association Name="FK_MinLoLChampions_MinLoLRoles">
+          <End Role="MinLoLRoles" Type="Self.MinLoLRole" Multiplicity="1" />
+          <End Role="MinLoLChampions" Type="Self.MinLoLChampion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MinLoLRoles">
+              <PropertyRef Name="ChampRoleID" />
+            </Principal>
+            <Dependent Role="MinLoLChampions">
+              <PropertyRef Name="ChampRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MinLoLChampions_MinLoLUltimates">
+          <End Role="MinLoLUltimates" Type="Self.MinLoLUltimate" Multiplicity="1" />
+          <End Role="MinLoLChampions" Type="Self.MinLoLChampion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MinLoLUltimates">
+              <PropertyRef Name="UltimateID" />
+            </Principal>
+            <Dependent Role="MinLoLChampions">
+              <PropertyRef Name="UltimateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MinLoLChampsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MinLoLChampions" EntityType="Self.MinLoLChampion" />
+          <EntitySet Name="MinLoLRoles" EntityType="Self.MinLoLRole" />
+          <EntitySet Name="MinLoLUltimates" EntityType="Self.MinLoLUltimate" />
+          <AssociationSet Name="FK_MinLoLChampions_MinLoLRoles" Association="Self.FK_MinLoLChampions_MinLoLRoles">
+            <End Role="MinLoLRoles" EntitySet="MinLoLRoles" />
+            <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MinLoLChampions_MinLoLUltimates" Association="Self.FK_MinLoLChampions_MinLoLUltimates">
+            <End Role="MinLoLUltimates" EntitySet="MinLoLUltimates" />
+            <End Role="MinLoLChampions" EntitySet="MinLoLChampions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MinLoLChampsModelStoreContainer" CdmEntityContainer="MinLoLChampsEntities">
+          <EntitySetMapping Name="MinLoLChampions">
+            <EntityTypeMapping TypeName="MinLoLChampsModel.MinLoLChampion">
+              <MappingFragment StoreEntitySet="MinLoLChampions">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ChampIcon" ColumnName="ChampIcon" />
+                <ScalarProperty Name="ChampPic" ColumnName="ChampPic" />
+                <ScalarProperty Name="ChampBio" ColumnName="ChampBio" />
+                <ScalarProperty Name="ChampID" ColumnName="ChampID" />
+                <ScalarProperty Name="UltimateID" ColumnName="UltimateID" />
+                <ScalarProperty Name="ChampRoleID" ColumnName="ChampRoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MinLoLRoles">
+            <EntityTypeMapping TypeName="MinLoLChampsModel.MinLoLRole">
+              <MappingFragment StoreEntitySet="MinLoLRoles">
+                <ScalarProperty Name="ChampRoleID" ColumnName="ChampRoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MinLoLUltimates">
+            <EntityTypeMapping TypeName="MinLoLChampsModel.MinLoLUltimate">
+              <MappingFragment StoreEntitySet="MinLoLUltimates">
+                <ScalarProperty Name="UltimateID" ColumnName="UltimateID" />
+                <ScalarProperty Name="UltimateName" ColumnName="UltimateName" />
+                <ScalarProperty Name="UltimateIcon" ColumnName="UltimateIcon" />
+                <ScalarProperty Name="UltimatePic" ColumnName="UltimatePic" />
+                <ScalarProperty Name="UltimateDescription" ColumnName="UltimateDescription" />
+                <ScalarProperty Name="UltimateCost" ColumnName="UltimateCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

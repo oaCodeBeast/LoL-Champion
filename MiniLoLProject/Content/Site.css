@@ -1,0 +1,256 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Noto+Sans|IM+Fell+DW+Pica+SC);
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background:url("Images/bg.jpg") no-repeat center;
+    width:100%;
+    background-color:#000000;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color:rgba(233,233,233, .75);
+    width:80%;
+    margin-top:20px;
+}
+.jumbotron {
+    background-color:rgba(233,233,233, 0);
+}
+.navbar-inverse{
+   background-color:rgba(15,15,15, .73);
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+a:hover,
+a:focus {
+  color: none;
+  text-decoration: none;
+}
+
+
+/*Champ Page*/
+.champ-wrapper{
+   
+    background-color:#c3c3c3;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    padding:4px 5px;
+    width: 86%;
+    margin: 0 auto;
+}
+.champ {
+    font-size: 1em;
+    color:#909090;
+    width:14.28%;
+    padding:10px 0px;
+    float:left;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    background-color:#EFEFEF;
+}
+.champ a{
+        color:#1850a8;
+}
+.champ-icon img{
+    width:70%;
+    padding:3px;
+    background-color:#D1D1D1;
+    border-left: 1px solid #909090;
+    border-top: 1px solid #909090;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+/*Champ details page*/
+.transparent-section{
+    width: 50%;
+    margin-left: 200px;
+    padding: 20px;
+    color: white;
+}
+.progress-nav a{
+    color:white;
+    text-shadow: 1px 1px black;
+}
+.champ-name{
+    padding: 150px 0px;
+   
+    text-shadow: 2px 2px black;
+
+}
+    .champ-name h1, h2 {
+            font-family: 'IM Fell DW Pica SC', serif;
+    }
+.champdet-wrapper{
+    margin:15px 0px;
+    border-left: 1px solid #909090;
+    border-top: 1px solid #909090;
+   background-color:#D1D1D1;
+    border-bottom: 1px solid #fff;
+}
+.detchamp{
+padding:3px;
+background-color:#D1D1D1;
+}
+.detchamptop{
+   padding:3px 3px 3px 3px;
+   background-color:#EFEFEF;
+   border-left:1px solid #fff;
+   border-top:1px solid #fff;
+   border-right:1px solid #909090;
+   border-bottom:1px solid #909090;
+}
+.champicon{
+     width:30%;
+     float:left;
+}
+.champinfo{
+   float:left;
+   margin-top: -20px;
+   margin-left: -3px;
+
+}
+.champbio {
+    
+   padding:5px;
+   background-color:#EFEFEF;
+   border-left:1px solid #fff;
+   border-top:1px solid #fff;
+   border-right:1px solid #909090;
+   border-bottom:1px solid #909090;
+}
+.champbio p {
+    text-align:justify;
+    padding:5px;
+}
+.detult{
+padding:3px;
+background-color:#D1D1D1;
+}
+.detulttop{
+   padding:3px 3px 3px 3px;
+   background-color:#EFEFEF;
+   border-left:1px solid #fff;
+   border-top:1px solid #fff;
+   border-right:1px solid #909090;
+   border-bottom:1px solid #909090;
+}
+
+
+.ulticon img{
+        margin-top: 35px;
+    margin-left: 32px;
+    padding: 3px;
+    background-color: #BCBCBC;
+     border-left:1px solid #fff;
+   border-top:1px solid #fff;
+   border-right:1px solid #909090;
+   border-bottom:1px solid #909090;
+}
+.ult{
+ 
+}
+.ulticon{
+     width:24%;
+     float:left;
+}
+.ultinfo{
+        width: 76%;
+}
+.ultpic{
+   width: 100%;
+   text-align: center;
+   padding: 13px;
+   background-color: #EFEFEF;
+   border-left:1px solid #fff;
+   border-top:1px solid #fff;
+   border-right:1px solid #909090;
+   border-bottom:1px solid #909090;
+}
+.ultpic img{
+    width:96%;
+}
+/*Ult index*/
+.ult{
+    min-height:257px;
+    text-align:center;
+     border-left:1px solid #fff;
+   border-top:1px solid #fff;
+   border-right:1px solid #909090;
+   border-bottom:1px solid #909090;
+   padding:5px;
+}
+.ult-icon{
+    width:23%;
+    margin:0 auto;
+
+    padding:3px;
+    border-left:1px solid #fff;
+   border-top:1px solid #fff;
+   border-right:1px solid #909090;
+   border-bottom:1px solid #909090;
+}
+.ult-info{
+      height: 168px;
+}
+.ult-info h4{
+    width: 57%;
+    float: left;
+  
+}
+.ult-info span {
+
+    vertical-align: -8px;
+}
+.ult-desc {
+   height:110px;
+}
+.ult-desc p {
+    width:95%;
+    padding:5px;
+    max-height:110px;
+  
+   
+}
+.ult-controls{
+  height:30px;
+}
+.ult-controls > a:nth-child(2){
+    float:right;
+}

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MinLoLChampsModelStoreContainer" CdmEntityContainer="MinLoLChampsEntities1">
+    <EntitySetMapping Name="MinLoLChampions">
+      <EntityTypeMapping TypeName="MinLoLChampsModel.MinLoLChampion">
+        <MappingFragment StoreEntitySet="MinLoLChampions">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ChampIcon" ColumnName="ChampIcon" />
+          <ScalarProperty Name="ChampPic" ColumnName="ChampPic" />
+          <ScalarProperty Name="ChampBio" ColumnName="ChampBio" />
+          <ScalarProperty Name="ChampID" ColumnName="ChampID" />
+          <ScalarProperty Name="UltimateID" ColumnName="UltimateID" />
+          <ScalarProperty Name="ChampRoleID" ColumnName="ChampRoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MinLoLRoles">
+      <EntityTypeMapping TypeName="MinLoLChampsModel.MinLoLRole">
+        <MappingFragment StoreEntitySet="MinLoLRoles">
+          <ScalarProperty Name="ChampRoleID" ColumnName="ChampRoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MinLoLUltimates">
+      <EntityTypeMapping TypeName="MinLoLChampsModel.MinLoLUltimate">
+        <MappingFragment StoreEntitySet="MinLoLUltimates">
+          <ScalarProperty Name="UltimateID" ColumnName="UltimateID" />
+          <ScalarProperty Name="UltimateName" ColumnName="UltimateName" />
+          <ScalarProperty Name="UltimateIcon" ColumnName="UltimateIcon" />
+          <ScalarProperty Name="UltimatePic" ColumnName="UltimatePic" />
+          <ScalarProperty Name="UltimateDescription" ColumnName="UltimateDescription" />
+          <ScalarProperty Name="UltimateCost" ColumnName="UltimateCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,64 @@
+﻿@model MiniLoLProject.DAL.MinLoLUltimate
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MinLoLUltimate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimateIcon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimateIcon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimatePic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimatePic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimateDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimateDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimateCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimateCost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
